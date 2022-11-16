@@ -11,8 +11,8 @@
         android:label="fragment_blank"
         tools:layout="@layout/fragment_blank" >
         <action
-            android:id="@+id/action_blankFragment_to_blankFragment3"
-            app:destination="@id/blankFragment3" />
+            android:id="@+id/action_blankFragment_to_blankFragment2"
+            app:destination="@id/blankFragment2" />
     </fragment>
     <fragment
         android:id="@+id/blankFragment3"
@@ -20,8 +20,14 @@
         android:label="fragment_blank3"
         tools:layout="@layout/fragment_blank3" >
         <action
-            android:id="@+id/action_blankFragment3_to_blankFragment2"
-            app:destination="@id/blankFragment2" />
+            android:id="@+id/action_blankFragment3_to_blankFragment"
+            app:destination="@id/blankFragment" />
+        <argument
+            android:name="text11"
+            app:argType="string" />
+        <argument
+            android:name="text22"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/blankFragment2"
@@ -31,6 +37,12 @@
         <action
             android:id="@+id/action_blankFragment2_to_blankFragment"
             app:destination="@id/blankFragment" />
+        <argument
+            android:name="text1"
+            app:argType="string" />
+        <argument
+            android:name="text2"
+            app:argType="string" />
     </fragment>
 
 </navigation>

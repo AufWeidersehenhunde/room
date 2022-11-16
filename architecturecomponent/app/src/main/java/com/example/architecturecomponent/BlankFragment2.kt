@@ -1,16 +1,18 @@
 package com.example.architecturecomponent
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.example.architecturecomponent.databinding.FragmentBlank2Binding
-import com.example.architecturecomponent.databinding.FragmentBlankBinding
+import com.example.architecturecomponent.firstscreen.BlankViewModel
 
 
 class BlankFragment2 : Fragment() {
+    private val vui: BlankViewModel by viewModels()
     private var _binding: FragmentBlank2Binding? = null
     private val binding get() = _binding!!
 
@@ -25,13 +27,16 @@ class BlankFragment2 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnGoToBack.setOnClickListener {
-            val text1 = binding.taskName.text
-            val text2 = binding.taskDescription.text
+        binding.btnAddToList.setOnClickListener {
+            vui.addStaticSomethingData(
+                binding.taskName.text.toString(),
+                binding.taskDescription.text.toString()
+            )
             Navigation.findNavController(view).navigate(R.id.blankFragment)
-            binding.btnGoToBack.setOnClickListener {
-                Navigation.findNavController(view).navigate(R.id.blankFragment)
-            }
+        }
+
+        binding.btnGoToBack.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.blankFragment)
         }
     }
 }
