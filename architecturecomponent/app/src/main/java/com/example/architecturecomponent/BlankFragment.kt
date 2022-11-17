@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,6 +27,7 @@ class BlankFragment : Fragment() {
         return binding.root
 
     }
+
     fun gotoview(){
         vui.observeAllSomething().observe(viewLifecycleOwner){
             someAdapter?.set(it)
@@ -34,19 +36,22 @@ class BlankFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        someAdapter = RecyclerViewAdapter({vui.deleteSomethingModel(it)}, { Navigation.findNavController(view).navigate(R.id.blankFragment3) })
-        binding.recyclerView.apply {
-            adapter = someAdapter
+        someAdapter = RecyclerViewAdapter({vui.deleteSomethingModel(it)}, {
+            val bundle = bundleOf("UUID" to it.uuid)
+            Navigation.findNavController(view).navigate(R.id.blankFragment3, bundle) })
+
+            with(binding.recyclerView){
+                adapter = someAdapter
                 layoutManager = LinearLayoutManager (
                     context,
                     LinearLayoutManager.VERTICAL,
                 false
                 )
-            
             gotoview()
         }
 
         binding.btnAdd.setOnClickListener {
+
             Navigation.findNavController(view).navigate(R.id.blankFragment2)
         }
 

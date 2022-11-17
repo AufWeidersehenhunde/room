@@ -9,6 +9,8 @@ class Repository {
     }
     fun getAllSomethingData() = somethingDao.getAllSomethingData()
 
+    fun observeSomething(inputData:String) = somethingDao.observeSHTANI(inputData)
+
     suspend fun addSomething(model:SomethingDb) = somethingDao.addSomething(model)
 
     suspend fun deleteSomething(model:SomethingDb) = somethingDao.deleteSomething(model)

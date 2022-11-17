@@ -1,13 +1,17 @@
 package com.example.architecturecomponent
 
+import android.app.FragmentManager
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.architecturecomponent.databinding.FragmentBlank3Binding
 import com.example.architecturecomponent.databinding.RecyclerviewItemBinding
 
-class RecyclerViewAdapter(private val click:(SomethingDb)  -> Unit, private val suka:(Navigation) -> Unit) : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>() {
+class RecyclerViewAdapter(private val click:(SomethingDb)  -> Unit, private val suka:(SomethingDb) -> Unit): RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>() {
     var Items: List<SomethingDb> = listOf()
 
 
@@ -22,7 +26,7 @@ class RecyclerViewAdapter(private val click:(SomethingDb)  -> Unit, private val 
                     notifyItemRemoved(position)
                 }
                 btnEdit.setOnClickListener {
-                    suka(Navigation)
+                    suka(model)
                 }
             }
             return

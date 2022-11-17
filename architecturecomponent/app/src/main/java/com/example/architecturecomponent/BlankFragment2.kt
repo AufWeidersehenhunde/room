@@ -1,14 +1,20 @@
 package com.example.architecturecomponent
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.Navigation
 import com.example.architecturecomponent.databinding.FragmentBlank2Binding
 import com.example.architecturecomponent.firstscreen.BlankViewModel
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.launch
 
 
 class BlankFragment2 : Fragment() {
@@ -26,7 +32,10 @@ class BlankFragment2 : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         super.onViewCreated(view, savedInstanceState)
+
+
         binding.btnAddToList.setOnClickListener {
             vui.addStaticSomethingData(
                 binding.taskName.text.toString(),
@@ -38,6 +47,7 @@ class BlankFragment2 : Fragment() {
         binding.btnGoToBack.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.blankFragment)
         }
+
     }
 }
 

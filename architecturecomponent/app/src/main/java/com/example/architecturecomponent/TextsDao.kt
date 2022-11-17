@@ -13,6 +13,9 @@ interface TextsDao {
     @Query("SELECT * FROM txt")
     fun getAllSomethingData():LiveData<List<SomethingDb>>
 
+    @Query("SELECT * FROM txt Where uuid like :input")
+    fun observeSHTANI(input: String):LiveData<List<SomethingDb>>
+
     @Insert
     suspend fun addSomething(model:SomethingDb)
 
@@ -22,6 +25,4 @@ interface TextsDao {
 
     @Update
     suspend fun updateSomething(model: SomethingDb)
-
-
 }

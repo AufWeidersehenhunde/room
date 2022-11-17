@@ -13,6 +13,22 @@
         <action
             android:id="@+id/action_blankFragment_to_blankFragment2"
             app:destination="@id/blankFragment2" />
+        <argument
+            android:name="nameTexkst"
+            app:argType="string" />
+        <argument
+            android:name="descriptionTexksts"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_blankFragment_to_blankFragment3"
+            app:destination="@id/blankFragment3" >
+            <argument
+                android:name="text11"
+                android:defaultValue='""' />
+            <argument
+                android:name="text22"
+                android:defaultValue='""' />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/blankFragment3"
@@ -27,6 +43,9 @@
             app:argType="string" />
         <argument
             android:name="text22"
+            app:argType="string" />
+        <argument
+            android:name="UUID"
             app:argType="string" />
     </fragment>
     <fragment
