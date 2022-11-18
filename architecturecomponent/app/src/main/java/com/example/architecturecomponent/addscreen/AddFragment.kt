@@ -1,24 +1,18 @@
-package com.example.architecturecomponent
+package com.example.architecturecomponent.addscreen
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.Navigation
+import com.example.architecturecomponent.R
 import com.example.architecturecomponent.databinding.FragmentBlank2Binding
-import com.example.architecturecomponent.firstscreen.BlankViewModel
-import kotlinx.coroutines.flow.filterNotNull
-import kotlinx.coroutines.launch
 
 
-class BlankFragment2 : Fragment() {
-    private val vui: BlankViewModel by viewModels()
+class AddFragment : Fragment() {
+    private val viewMA: AddViewModel by viewModels()
     private var _binding: FragmentBlank2Binding? = null
     private val binding get() = _binding!!
 
@@ -37,7 +31,7 @@ class BlankFragment2 : Fragment() {
 
 
         binding.btnAddToList.setOnClickListener {
-            vui.addStaticSomethingData(
+            viewMA.addStaticSomethingData(
                 binding.taskName.text.toString(),
                 binding.taskDescription.text.toString()
             )

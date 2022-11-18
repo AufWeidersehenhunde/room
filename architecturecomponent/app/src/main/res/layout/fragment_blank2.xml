@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BlankFragment2">
+    tools:context=".addscreen.AddFragment">
 
     <EditText
         android:id="@+id/taskName"
@@ -37,7 +37,6 @@
         android:id="@+id/btnGoToBack"
         android:layout_width="165dp"
         android:layout_height="65dp"
-        android:layout_marginTop="25dp"
         android:backgroundTint="@color/black"
         android:text="Назад"
         android:textColor="@color/white"
@@ -47,22 +46,20 @@
         app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/taskDescription"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.098" />
 
     <Button
         android:id="@+id/btnAddToList"
-        android:layout_width="171dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="231dp"
+        android:layout_width="173dp"
+        android:layout_height="65dp"
         android:backgroundTint="@color/black"
-        android:textColor="@color/white"
         android:text="Добавить"
+        android:textColor="@color/white"
         app:icon="@android:drawable/checkbox_on_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnGoToBack"
-        app:layout_constraintTop_toBottomOf="@+id/taskDescription" />
+        app:layout_constraintHorizontal_bias="0.936"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskDescription"
+        app:layout_constraintVertical_bias="0.098" />
 </androidx.constraintlayout.widget.ConstraintLayout>

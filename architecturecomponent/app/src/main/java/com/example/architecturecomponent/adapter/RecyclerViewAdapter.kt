@@ -1,19 +1,13 @@
-package com.example.architecturecomponent
+package com.example.architecturecomponent.adapter
 
-import android.app.FragmentManager
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.example.architecturecomponent.databinding.FragmentBlank3Binding
+import com.example.architecturecomponent.dpandprovider.SomethingDb
 import com.example.architecturecomponent.databinding.RecyclerviewItemBinding
 
 class RecyclerViewAdapter(private val click:(SomethingDb)  -> Unit, private val suka:(SomethingDb) -> Unit): RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>() {
     var Items: List<SomethingDb> = listOf()
-
 
     inner class MyViewHolder(itemBinding: RecyclerviewItemBinding):RecyclerView.ViewHolder(itemBinding.root) {
         private val binding = itemBinding
@@ -27,12 +21,14 @@ class RecyclerViewAdapter(private val click:(SomethingDb)  -> Unit, private val 
                 }
                 btnEdit.setOnClickListener {
                     suka(model)
+
                 }
             }
             return
         }
-    }
 
+
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemBinding = RecyclerviewItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -52,13 +48,5 @@ class RecyclerViewAdapter(private val click:(SomethingDb)  -> Unit, private val 
         this.Items = items
         notifyDataSetChanged()
     }
-
-
-//    fun removeItem(position:Int) {
-//
-//        Items.remove()
-//        notifyItemRemoved(position)
-//        notifyItemRangeChanged(position, Items.size)
-//    }
 
 }

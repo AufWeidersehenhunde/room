@@ -1,4 +1,4 @@
-package com.example.architecturecomponent
+package com.example.architecturecomponent.dpandprovider
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
