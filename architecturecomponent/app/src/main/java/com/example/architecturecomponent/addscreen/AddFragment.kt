@@ -9,10 +9,11 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.example.architecturecomponent.R
 import com.example.architecturecomponent.databinding.FragmentBlank2Binding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class AddFragment : Fragment() {
-    private val viewMA: AddViewModel by viewModels()
+    private val viewMA: AddViewModel by viewModel()
     private var _binding: FragmentBlank2Binding? = null
     private val binding get() = _binding!!
 
@@ -35,15 +36,16 @@ class AddFragment : Fragment() {
                 binding.taskName.text.toString(),
                 binding.taskDescription.text.toString()
             )
-            Navigation.findNavController(view).navigate(R.id.blankFragment)
+            viewMA.goToBack()
         }
 
         binding.btnGoToBack.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.blankFragment)
+           viewMA.goToBack()
         }
 
+        }
     }
-}
+
 
 
 

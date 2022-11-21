@@ -1,17 +1,19 @@
 package com.example.architecturecomponent.repository
 
+import com.example.architecturecomponent.daos.TextsDao
 import com.example.architecturecomponent.dpandprovider.DBprovider
 import com.example.architecturecomponent.dpandprovider.SomethingDb
+import com.github.terrakok.cicerone.Router
+import java.util.UUID
 
-class Repository {
-    private val somethingDao = DBprovider.instance.somethingDao()
-
-    companion object{
-        val instance = Repository()
-
-    }
+class Repository(
+    private val somethingDao: TextsDao
+)
+{
 
     fun getAllSomethingData() = somethingDao.getAllSomethingData()
+
+    suspend fun getItemForId(uuid: String) = somethingDao.getItemForId(uuid)
 
     suspend fun addSomething(model: SomethingDb) = somethingDao.addSomething(model)
 
