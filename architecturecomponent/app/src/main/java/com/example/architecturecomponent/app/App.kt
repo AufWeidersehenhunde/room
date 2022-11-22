@@ -14,7 +14,7 @@ class App: Application() {
     override fun onCreate() {
         super.onCreate()
         GlobalContext.startKoin {
-            androidLogger(Level.NONE)
+            androidLogger()
             androidContext(this@App)
             modules(appModule)
         }

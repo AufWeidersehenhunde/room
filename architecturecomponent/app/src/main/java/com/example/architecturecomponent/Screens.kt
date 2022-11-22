@@ -6,9 +6,7 @@ import com.example.architecturecomponent.homescreen.HomeFragment
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 
 object Screens {
-
     fun getEditTextFragment(uuid: String) = FragmentScreen { EditFragment.getInstance(uuid) }
     fun getHomeFragment() =  FragmentScreen { HomeFragment() }
-    fun getEditFragment() =  FragmentScreen { EditFragment() }
     fun getAddFragment() =  FragmentScreen { AddFragment() }
 }

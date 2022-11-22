@@ -8,8 +8,7 @@ import java.util.UUID
 
 class Repository(
     private val somethingDao: TextsDao
-)
-{
+) {
 
     fun getAllSomethingData() = somethingDao.getAllSomethingData()
 

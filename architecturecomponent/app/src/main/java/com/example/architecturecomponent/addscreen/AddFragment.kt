@@ -7,44 +7,34 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.architecturecomponent.R
 import com.example.architecturecomponent.databinding.FragmentBlank2Binding
+import com.example.architecturecomponent.databinding.FragmentBlank3Binding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class AddFragment : Fragment() {
+class AddFragment : Fragment(R.layout.fragment_blank2) {
     private val viewMA: AddViewModel by viewModel()
-    private var _binding: FragmentBlank2Binding? = null
-    private val binding get() = _binding!!
+    private val viewBinding: FragmentBlank2Binding by viewBinding()
 
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentBlank2Binding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         super.onViewCreated(view, savedInstanceState)
 
-
-        binding.btnAddToList.setOnClickListener {
+        viewBinding.btnAddToList.setOnClickListener {
             viewMA.addStaticSomethingData(
-                binding.taskName.text.toString(),
-                binding.taskDescription.text.toString()
+                viewBinding.taskName.text.toString(),
+                viewBinding.taskDescription.text.toString()
             )
             viewMA.goToBack()
         }
 
-        binding.btnGoToBack.setOnClickListener {
-           viewMA.goToBack()
-        }
-
+        viewBinding.btnGoToBack.setOnClickListener {
+            viewMA.goToBack()
         }
     }
+}
 
 
 

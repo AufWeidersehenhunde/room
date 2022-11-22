@@ -12,19 +12,14 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel(
     private val router: Router,
-    private val repo:Repository
-): ViewModel() {
+    private val repo: Repository
+) : ViewModel() {
 
-
-    fun routeToUuid(uuid: String){
+    fun routeToUuid(uuid: String) {
         router.navigateTo(Screens.getEditTextFragment(uuid))
     }
 
-    fun create(){
-        router.newRootScreen(Screens.getEditFragment())
-    }
-
-    fun goToAdd(){
+    fun goToAdd() {
         router.navigateTo(Screens.getAddFragment())
     }
 
@@ -32,7 +27,7 @@ class HomeViewModel(
 
     fun deleteSomethingModel(model: SomethingDb) {
         viewModelScope.launch {
-           repo.deleteSomething(model)
+            repo.deleteSomething(model)
         }
     }
 }
